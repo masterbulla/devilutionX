@@ -209,7 +209,7 @@ void CreditsRenderer::Render()
 	prev_offset_y_ = offset_y;
 
 	SDL_FillRect(GetOutputSurface(), NULL, 0x000000);
-	DrawArt(0, 0, &ArtBackground);
+	DrawArt(PANEL_LEFT + 0, 0, &ArtBackground);
 	if (font == nullptr)
 		return;
 
@@ -244,7 +244,7 @@ void CreditsRenderer::Render()
 		if (line.palette_version != pal_surface_palette_version)
 			line = PrepareLine(line.index);
 
-		decltype(SDL_Rect().x) dest_x = VIEWPORT.x + 31;
+		decltype(SDL_Rect().x) dest_x = PANEL_LEFT + VIEWPORT.x + 31;
 		if (CREDITS_LINES[line.index][0] == '\t')
 			dest_x += 40;
 
